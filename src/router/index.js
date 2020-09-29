@@ -40,6 +40,7 @@ export const asyncRoutes = [
     path: "/",
     component: Layout,
     redirect: "index",
+    hidden: true,
     children: [
       {
         path: "index",
@@ -56,7 +57,7 @@ export const asyncRoutes = [
   {
     path: "/personalCenter",
     component: Layout,
-    hidden: true,
+    hidden: false,
     redirect: "personalCenter",
     children: [
       {
@@ -69,23 +70,51 @@ export const asyncRoutes = [
       },
     ],
   },
-  /* {
-    path: "/test",
+  {
+    path: "/distribution",
     component: Layout,
     redirect: "noRedirect",
+    name: "distribution",
+    meta: { title: " 分布", icon: "map-marker-alt", permissions: ["admin"] },
     children: [
       {
         path: "test",
         name: "Test",
-        component: () => import("@/views/test/index"),
+        component: () => import("@/views/distribution/index"),
         meta: {
-          title: "test",
-          icon: "marker",
+          title: "区域统计",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "map",
+        component: () => import("@/views/distribution/map/index"),
+        name: "Map",
+        meta: {
+          title: "地图",
           permissions: ["admin"],
         },
       },
     ],
-  }, */
+  },
+  {
+    path: "/data",
+    component: Layout,
+    redirect: "noRedirect",
+    name: "data",
+    meta: { title: " 数据", icon: "map-marker-alt", permissions: ["admin"] },
+    children: [
+      {
+        path: "weibo",
+        name: "weibo",
+        component: () => import("@/views/data/index"),
+        meta: {
+          title: "地震微博",
+          permissions: ["admin"],
+        },
+      },
+    ],
+  },
   {
     path: "/personnelManagement",
     component: Layout,
@@ -110,6 +139,7 @@ export const asyncRoutes = [
       {
         path: "menuManagement",
         name: "MenuManagement",
+        hidden: true,
         component: () =>
           import("@/views/personnelManagement/menuManagement/index"),
         meta: { title: "菜单管理", badge: "New" },
@@ -197,15 +227,6 @@ export const asyncRoutes = [
             meta: { title: "行内编辑" },
           },
         ],
-      },
-      {
-        path: "map",
-        component: () => import("@/views/vab/map/index"),
-        name: "Map",
-        meta: {
-          title: "地图",
-          permissions: ["admin"],
-        },
       },
 
       {
@@ -395,7 +416,7 @@ export const asyncRoutes = [
         path: "blacklist",
         name: "Blacklist",
         component: () => import("@/views/vab/blacklist/index"),
-        meta: { title: "黑名单", permissions: ["admin"] },
+        meta: { title: "测试模块", permissions: ["admin"] },
       },
     ],
   },
@@ -404,8 +425,9 @@ export const asyncRoutes = [
     component: Layout,
     redirect: "noRedirect",
     name: "Mall",
+    hidden: true,
     meta: {
-      title: "商城",
+      title: "商城操作",
       icon: "shopping-cart",
       permissions: ["admin"],
     },
@@ -444,6 +466,7 @@ export const asyncRoutes = [
     component: EmptyLayout,
     redirect: "noRedirect",
     name: "Error",
+    hidden: true,
     meta: { title: "错误页", icon: "bug" },
     children: [
       {

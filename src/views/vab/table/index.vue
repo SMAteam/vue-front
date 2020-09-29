@@ -1,23 +1,12 @@
 <template>
   <div class="table-container">
     <vab-query-form>
-      <vab-query-form-left-panel>
-        <el-button icon="el-icon-plus" type="primary" @click="handleAdd">
-          添加
-        </el-button>
-        <el-button icon="el-icon-delete" type="danger" @click="handleDelete">
-          删除
-        </el-button>
-        <el-button type="primary" @click="testMessage">baseMessage</el-button>
-        <el-button type="primary" @click="testALert">baseAlert</el-button>
-        <el-button type="primary" @click="testConfirm">baseConfirm</el-button>
-        <el-button type="primary" @click="testNotify">baseNotify</el-button>
-      </vab-query-form-left-panel>
       <vab-query-form-right-panel>
         <el-form
           ref="form"
           :model="queryForm"
           :inline="true"
+          label-position="right"
           @submit.native.prevent
         >
           <el-form-item>
@@ -65,15 +54,6 @@
         label="作者"
         prop="author"
       ></el-table-column>
-      <el-table-column show-overflow-tooltip label="头像">
-        <template slot-scope="scope">
-          <el-image
-            v-if="imgShow"
-            :preview-src-list="imageList"
-            :src="scope.row.img"
-          ></el-image>
-        </template>
-      </el-table-column>
       <el-table-column
         show-overflow-tooltip
         label="点击量"
@@ -102,17 +82,9 @@
       ></el-table-column>
       <el-table-column
         show-overflow-tooltip
-        label="操作"
-        width="180px"
-        fixed="right"
-      >
-        <template slot-scope="scope">
-          <el-button type="text" @click="handleEdit(scope.row)">编辑</el-button>
-          <el-button type="text" @click="handleDelete(scope.row)">
-            删除
-          </el-button>
-        </template>
-      </el-table-column>
+        prop="title"
+        label="内容简介"
+      ></el-table-column>
     </el-table>
     <el-pagination
       :background="background"
@@ -179,33 +151,7 @@
       setSelectRows(val) {
         this.selectRows = val;
       },
-      handleAdd() {
-        this.$refs["edit"].showEdit();
-      },
-      handleEdit(row) {
-        this.$refs["edit"].showEdit(row);
-      },
-      handleDelete(row) {
-        if (row.id) {
-          this.$baseConfirm("你确定要删除当前项吗", null, async () => {
-            const { msg } = await doDelete({ ids: row.id });
-            this.$baseMessage(msg, "success");
-            this.fetchData();
-          });
-        } else {
-          if (this.selectRows.length > 0) {
-            const ids = this.selectRows.map((item) => item.id).join();
-            this.$baseConfirm("你确定要删除选中项吗", null, async () => {
-              const { msg } = await doDelete({ ids: ids });
-              this.$baseMessage(msg, "success");
-              this.fetchData();
-            });
-          } else {
-            this.$baseMessage("未选中任何行", "error");
-            return false;
-          }
-        }
-      },
+
       handleSizeChange(val) {
         this.queryForm.pageSize = val;
         this.fetchData();
@@ -231,33 +177,6 @@
         setTimeout(() => {
           this.listLoading = false;
         }, 500);
-      },
-      testMessage() {
-        this.$baseMessage("test1", "success");
-      },
-      testALert() {
-        this.$baseAlert("11");
-        this.$baseAlert("11", "自定义标题", () => {
-          /* 可以写回调; */
-        });
-        this.$baseAlert("11", null, () => {
-          /* 可以写回调; */
-        });
-      },
-      testConfirm() {
-        this.$baseConfirm(
-          "你确定要执行该操作?",
-          null,
-          () => {
-            /* 可以写回调; */
-          },
-          () => {
-            /* 可以写回调; */
-          }
-        );
-      },
-      testNotify() {
-        this.$baseNotify("测试消息提示", "test", "success", "bottom-right");
       },
     },
   };

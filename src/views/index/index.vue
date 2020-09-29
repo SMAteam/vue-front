@@ -1,42 +1,6 @@
 <template>
   <div class="index-container">
     <el-row :gutter="20">
-      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <el-alert
-          v-if="noticeList[0]"
-          :title="noticeList[0].title"
-          :closable="noticeList[0].closable"
-        >
-          <a
-            target="_blank"
-            href="https://github.com/chuzhixin/vue-admin-beautiful"
-          >
-            <img
-              style="height: 100%; margin-right: 10px"
-              src="https://img.shields.io/github/stars/chuzhixin/vue-admin-beautiful?style=flat-square&label=Stars&logo=github"
-            />
-            <img
-              style="height: 100%; margin-right: 10px"
-              src=" https://img.shields.io/badge/Visitors-79.3k/month-blue?style=flat-square&logo=Visual Studio Code"
-            />
-            <img
-              style="height: 100%; margin-right: 10px"
-              src="https://img.shields.io/github/last-commit/chuzhixin/vue-admin-beautiful?style=flat-square&label=Last Commit&logo=vue.js"
-            />
-          </a>
-          <!--  <a
-            target="_blank"
-            href="https://chu1204505056.gitee.io/vue-admin-beautiful-pro/"
-          >
-            <img
-              style="position: absolute; top: 0; right: 0"
-              src="@/assets/pro.png"
-              alt=""
-              srcset=""
-            />
-          </a> -->
-        </el-alert>
-      </el-col>
       <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6">
         <el-card shadow="never">
           <div slot="header">
@@ -48,19 +12,7 @@
             :options="fwl"
           />
           <div class="bottom">
-            <span>
-              日均访问量:
-
-              <vab-count
-                :start-val="config1.startVal"
-                :end-val="config1.endVal"
-                :duration="config1.duration"
-                :separator="config1.separator"
-                :prefix="config1.prefix"
-                :suffix="config1.suffix"
-                :decimals="config1.decimals"
-              />
-            </span>
+            <span>日均访问量: {{ abc }}</span>
           </div>
         </el-card>
       </el-col>
@@ -90,6 +42,7 @@
           </div>
         </el-card>
       </el-col>
+
       <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
         <el-card shadow="never">
           <div slot="header">
@@ -118,6 +71,7 @@
           </div>
         </el-card>
       </el-col>
+
       <el-col :xs="24" :sm="24" :md="24" :lg="13" :xl="13">
         <el-card class="card" shadow="never">
           <div slot="header">
@@ -302,9 +256,10 @@
 <script>
   import VabChart from "@/plugins/echarts";
   import { dependencies, devDependencies } from "../../../package.json";
-  import { getList } from "@/api/changeLog";
+  import { getCLList } from "@/api/changeLog";
   import { getNoticeList } from "@/api/notice";
   import { getRepos, getStargazers } from "@/api/github";
+
   export default {
     name: "Index",
     components: {
@@ -328,7 +283,7 @@
         },
         config2: {
           startVal: 0,
-          endVal: this.$baseLodash.random(1000, 20000),
+          endVal: 2000,
           decimals: 0,
           prefix: "",
           suffix: "",
@@ -344,6 +299,7 @@
           separator: ",",
           duration: 8000,
         },
+        abc: 2000,
 
         //访问量
         fwl: {
@@ -592,7 +548,7 @@
                 { name: "海南", value: 2522.66 },
                 { name: "甘肃", value: 5020.37 },
                 { name: "贵州", value: 5701.84 },
-                { name: "新疆", value: 6610.05 },
+                { name: "新疆", value: 2000.0 },
                 { name: "云南", value: 8893.12 },
                 { name: "重庆", value: 10011.37 },
                 { name: "吉林", value: 10568.83 },

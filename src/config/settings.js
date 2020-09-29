@@ -19,8 +19,8 @@ module.exports = {
       ? "vab-mock-server"
       : "vab-mock-server",
   //标题 （包括初次加载雪花屏的标题 页面的标题 浏览器的标题）
-  title: "vue-admin-beautiful",
-  //简写
+  title: "Disaster-Analyse",
+  //简写ß
   abbreviation: "vab",
   //开发环境端口号
   devPort: "80",

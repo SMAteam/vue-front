@@ -2,19 +2,28 @@ const { mock } = require("mockjs");
 const { handleRandomImage } = require("../utils");
 
 const List = [];
-const count = 999;
+const count = 100;
 for (let i = 0; i < count; i++) {
   List.push(
     mock({
       uuid: "@uuid",
       id: "@id",
       title: "@csentence(1, 2)",
-      "status|1": ["published", "draft", "deleted"],
+      "province|1": [
+        "浙江",
+        "北京市",
+        "广东",
+        "西藏",
+        "新疆",
+        "黑龙江",
+        "湖北",
+        "香港",
+        "澳门",
+        "台湾",
+      ], //三个属性三选一
       author: "@cname",
       datetime: "@datetime",
       pageViews: "@integer(300, 5000)",
-      img: handleRandomImage(200, 200),
-      smallImg: handleRandomImage(40, 40),
       switch: "@boolean",
       percent: "@integer(80,99)",
     })
@@ -36,7 +45,19 @@ module.exports = [
               {
                 id: "@id",
                 title: "@csentence(1, 2)",
-                "status|1": ["published", "draft", "deleted"],
+                /* "status|1": ["published", "draft", "deleted"], */
+                "province|1": [
+                  "浙江",
+                  "北京",
+                  "广东",
+                  "西藏",
+                  "新疆",
+                  "黑龙江",
+                  "湖北",
+                  "香港",
+                  "澳门",
+                  "台湾",
+                ], //三个属性三选一
                 author: "@cname",
                 datetime: "@datetime",
                 pageViews: "@integer(300, 5000)",

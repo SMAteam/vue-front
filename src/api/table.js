@@ -23,3 +23,18 @@ export function doDelete(data) {
     data,
   });
 }
+
+export function getList1(data) {
+  return request({
+    url: "http://152.136.59.62:8000/earthquake_macroscopic/list1",
+    method: "post",
+    data,
+  });
+}
+export function getLine1(data) {
+  return request({
+    url: "http://152.136.59.62:8000/earthquake_macroscopic/line1",
+    method: "post",
+    data,
+  });
+}

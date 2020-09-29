@@ -91,7 +91,7 @@
 </template>
 
 <script>
-  import { getList, doDelete } from "@/api/userManagement";
+  import { getList, doDelete, getTestData } from "@/api/userManagement";
   import Edit from "./components/UserManagementEdit";
 
   export default {
@@ -101,8 +101,10 @@
       return {
         list: null,
         listLoading: true,
+        listx: null,
         layout: "total, sizes, prev, pager, next, jumper",
         total: 0,
+        datax: null,
         selectRows: "",
         elementLoadingText: "正在加载...",
         queryForm: {
@@ -162,6 +164,8 @@
       async fetchData() {
         this.listLoading = true;
         const { data, totalCount } = await getList(this.queryForm);
+        //const { datax } = await getTestData();
+        //this.listx = datax;
         this.list = data;
         this.total = totalCount;
         setTimeout(() => {
