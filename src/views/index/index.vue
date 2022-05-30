@@ -598,12 +598,7 @@
             link: "/vab/table/comprehensiveTable",
             color: "#5cdbd3",
           },
-          {
-            icon: "laptop-code",
-            title: "源码",
-            link: "https://github.com/chuzhixin/vue-admin-beautiful",
-            color: "#b37feb",
-          },
+
           {
             icon: "book",
             title: "书籍",

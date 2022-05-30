@@ -45,7 +45,7 @@
       return {
         config1: {
           id: "mse1",
-          url: "https://cdn.jsdelivr.net/gh/chuzhixin/videos@master/video.mp4",
+          url: "https://cdn.jsdelivr.net/gh/ljx02263/Resources@1.7/about.mp4",
           volume: 1,
           autoplay: false,
         },

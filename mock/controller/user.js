@@ -1,11 +1,14 @@
 const accessTokens = {
+  //添加用户以及对应权限的位置：添加新用户
   admin: "admin-accessToken",
   editor: "editor-accessToken",
   test: "test-accessToken",
+  ljx02263: "test-accessToken",
 };
 
 module.exports = [
   {
+    //对应给予accessToken的公钥
     url: "/publicKey",
     type: "post",
     response() {
@@ -21,11 +24,12 @@ module.exports = [
     },
   },
   {
-    url: "/login",
+    url: "/login", //登录验证
     type: "post",
     response(config) {
-      const { username } = config.body;
-      const accessToken = accessTokens[username];
+      const { username } = config.body; //输入的名称
+      const accessToken = accessTokens[username]; //对应accessToken的名字
+
       if (!accessToken) {
         return {
           code: 500,
@@ -39,8 +43,9 @@ module.exports = [
       };
     },
   },
+
   {
-    url: "/register",
+    url: "/register", //注册验证
     type: "post",
     response() {
       return {
@@ -49,8 +54,9 @@ module.exports = [
       };
     },
   },
+
   {
-    url: "/userInfo",
+    url: "/userInfo", //用户信息验证
     type: "post",
     response(config) {
       const { accessToken } = config.body;

@@ -2,7 +2,14 @@ import request from "@/utils/request";
 
 export function getEarthQuakeData(data) {
   return request({
-    url: "http://152.136.59.62:8000/earthquake_macroscopic/map1",
+    url: "http://49.232.229.126:8000/earthquake_macroscopic/map1",
+    method: "post",
+    data,
+  });
+}
+export function getWeiboData(data) {
+  return request({
+    url: "http://49.232.229.126:8000/earthquake_macroscopic/map2",
     method: "post",
     data,
   });

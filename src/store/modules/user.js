@@ -1,5 +1,4 @@
 /**
- * @copyright chuzhixin 1204505056@qq.com
  * @description 登录、获取用户信息、退出登录、清除accessToken逻辑，不建议修改
  */
 
@@ -45,6 +44,7 @@ const actions = {
     commit("setPermissions", permissions);
   },
   async login({ commit }, userInfo) {
+    //判断登录
     const { data } = await login(userInfo);
     const accessToken = data[tokenName];
     if (accessToken) {

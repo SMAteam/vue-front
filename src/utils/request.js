@@ -19,7 +19,7 @@ import { isArray } from "@/utils/validate";
 let loadingInstance;
 
 /**
- * @copyright chuzhixin 1204505056@qq.com
+ * @copyright liaojianxiang 1298508511@qq.com
  * @description 判断当前url是否需要加loading
  * @param {*} config
  * @returns
@@ -35,7 +35,7 @@ const needLoading = (config) => {
 };
 
 /**
- * @copyright chuzhixin 1204505056@qq.com
+ * @copyright liaojianxiang 1298508511@qq.com
  * @description 处理code异常
  * @param {*} code
  * @param {*} msg

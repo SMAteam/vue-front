@@ -83,7 +83,7 @@
       <el-table-column
         show-overflow-tooltip
         prop="title"
-        label="内容简介"
+        label="事件简介"
       ></el-table-column>
     </el-table>
     <el-pagination

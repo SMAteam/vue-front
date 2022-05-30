@@ -1,22 +1,25 @@
 <template>
   <div class="markdown-editor-container">
     <el-row :gutter="20">
-      <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
+      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="12">
         <vab-markdown-editor
           ref="mde"
           v-model="value"
           @show-html="handleShowHtml"
         ></vab-markdown-editor>
-        <el-button @click="handleAddText">增加文本</el-button>
-        <el-button @click="handleAddImg">增加图片</el-button>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
+    </el-row>
+
+    <el-row :gutter="20">
+      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
         <el-card shadow="hover">
           <div slot="header">
             <span>markdown转换html实时演示区域</span>
           </div>
           <div v-html="html"></div>
         </el-card>
+        <el-button @click="handleAddText">增加文本</el-button>
+        <el-button @click="handleAddImg">增加图片</el-button>
       </el-col>
     </el-row>
   </div>

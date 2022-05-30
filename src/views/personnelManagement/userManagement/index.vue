@@ -1,5 +1,8 @@
 <template>
   <div class="userManagement-container">
+    <el-divider content-position="left">
+      这里要与辉哥后端数据库进行统一
+    </el-divider>
     <vab-query-form>
       <vab-query-form-left-panel :span="12">
         <el-button icon="el-icon-plus" type="primary" @click="handleEdit">
@@ -37,7 +40,7 @@
       <el-table-column
         show-overflow-tooltip
         prop="id"
-        label="id"
+        label="电话"
       ></el-table-column>
       <el-table-column
         show-overflow-tooltip
@@ -122,6 +125,7 @@
         this.selectRows = val;
       },
       handleEdit(row) {
+        //更改用户信息
         if (row.id) {
           this.$refs["edit"].showEdit(row);
         } else {
@@ -129,6 +133,7 @@
         }
       },
       handleDelete(row) {
+        //删除用户信息
         if (row.id) {
           this.$baseConfirm("你确定要删除当前项吗", null, async () => {
             const { msg } = await doDelete({ ids: row.id });

@@ -16,15 +16,7 @@
             <ul>
               <li>永久开源免费，支持横纵布局切换</li>
               <li>保留控制台以及代码中的作者信息可免费商用</li>
-              <li>
-                开源地址
-                <a
-                  target="_blank"
-                  href="https://github.com/chuzhixin/vue-admin-beautiful"
-                >
-                  支持白嫖，也请给个star
-                </a>
-              </li>
+
               <li>提供讨论群专属文档，QQ群 972435319</li>
             </ul>
           </div>

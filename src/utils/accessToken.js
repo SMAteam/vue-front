@@ -2,7 +2,7 @@ import { storage, tokenTableName } from "@/config/settings";
 import cookie from "js-cookie";
 
 /**
- * @copyright chuzhixin 1204505056@qq.com
+ * @copyright liaojianxiang 1298508511@qq.com
  * @description 获取accessToken
  * @returns {string|ActiveX.IXMLDOMNode|Promise<any>|any|IDBRequest<any>|MediaKeyStatus|FormDataEntryValue|Function|Promise<Credential | null>}
  */
@@ -23,7 +23,7 @@ export function getAccessToken() {
 }
 
 /**
- * @copyright chuzhixin 1204505056@qq.com
+ * @copyright liaojianxiang 1298508511@qq.com
  * @description 存储accessToken
  * @param accessToken
  * @returns {void|*}
@@ -45,7 +45,7 @@ export function setAccessToken(accessToken) {
 }
 
 /**
- * @copyright chuzhixin 1204505056@qq.com
+ * @copyright liaojianxiang 1298508511@qq.com
  * @description 移除accessToken
  * @returns {void|Promise<void>}
  */

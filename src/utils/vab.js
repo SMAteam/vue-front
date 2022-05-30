@@ -146,9 +146,9 @@ const install = (Vue, opts = {}) => {
   /* 全局map图层 */
   Vue.prototype.$baseMap = () => {
     return new maptalks.Map("map", {
-      center: [116.41348403785, 39.910843952376],
-      zoom: 12,
-      minZoom: 1,
+      center: [110.21348403785, 38.410843952376],
+      zoom: 5.3,
+      minZoom: 3,
       maxZoom: 19,
       spatialReference: {
         projection: "baidu",

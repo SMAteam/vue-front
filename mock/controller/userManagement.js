@@ -1,28 +1,28 @@
 const totalCount = 3;
 const List = [
   {
-    id: "@id",
+    id: "13001137866", //电话
     username: "admin",
-    password: "admin",
-    email: "@email",
+    password: "123456",
+    email: "1298508511@qq.com",
     permissions: ["admin"],
-    datatime: "@datetime",
+    datatime: "2021-03-16 07:46:55",
   },
   {
-    id: "@id",
+    id: "13001137866", //电话
     username: "editor",
-    password: "editor",
-    email: "@email",
+    password: "123456",
+    email: "2017212938@bupt.edu.cn",
     permissions: ["editor"],
-    datatime: "@datetime",
+    datatime: "2021-03-19 07:46:55",
   },
   {
-    id: "@id",
-    username: "test",
-    password: "test",
-    email: "@email",
+    id: "13001137866", //电话
+    username: "ljx02263",
+    password: "123456",
+    email: "2017212938@bupt.edu.cn",
     permissions: ["admin", "editor"],
-    datatime: "@datetime",
+    datatime: "2021-03-21 07:46:55",
   },
 ];
 module.exports = [
@@ -48,22 +48,24 @@ module.exports = [
     },
   },
   {
+    //进入这里来操作 - 模拟编辑
     url: "/userManagement/doEdit",
     type: "post",
     response() {
       return {
         code: 200,
-        msg: "模拟保存成功",
+        msg: "保存成功",
       };
     },
   },
   {
+    //进入这里来操作 - 模拟删除
     url: "/userManagement/doDelete",
     type: "post",
     response() {
       return {
         code: 200,
-        msg: "模拟删除成功",
+        msg: "删除成功",
       };
     },
   },

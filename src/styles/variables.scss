@@ -1,6 +1,6 @@
 /**
- * @copyright chuzhixin 1204505056@qq.com
- * @description 全局主题变量配置，VIP文档内提供多种好看的配色方案（ant-design风格、layui风格、iview风格），请查看VIP文档主题配置篇
+ * @copyright liaojianxiang 1298508511@qq.com
+ * @description 全局主题变量配置
  */
 /* stylelint-disable */
 @charset "utf-8";
@@ -57,7 +57,7 @@ $base-menu-item-height: 50px;
 //app-main的高度
 $base-app-main-height: calc(
   100vh - #{$base-nav-bar-height} - #{$base-tags-bar-height} - #{$base-padding} -
-  #{$base-padding} - 55px - 30px
+    #{$base-padding} - 55px - 30px
 );
 //纵向布局时左侧导航未折叠时的宽度
 $base-left-menu-width: 256px;

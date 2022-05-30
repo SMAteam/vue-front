@@ -7,14 +7,22 @@
         :xs="24"
         :sm="8"
         :md="8"
-        :lg="8"
+        :lg="24"
         :xl="4"
       >
         <el-card shadow="hover">
           <div slot="header">
-            <span>{{ item.title }}</span>
+            <span class="time">发表时间: {{ item.title }}</span>
+            <span class="comment">评论数: 200；</span>
+            <span class="forward">转发量: 300；</span>
+            <span class="like">点赞量: 300；</span>
           </div>
-          <div style="width: 100%; height: 200px">
+          <div class="lodash-content" style="color: #ff0000">
+            这里放相应的内容
+            <br />
+            // => 1
+          </div>
+          <!-- <div style="width: 100%; height: 200px"> 原来这里放图片的
             <vab-image
               :big-src="item.img"
               :percent="item.percent"
@@ -22,7 +30,7 @@
               @clickBig="bigClick(item)"
               @clickSmall="smallClick(item)"
             ></vab-image>
-          </div>
+          </div> -->
         </el-card>
       </el-col>
     </el-row>
@@ -39,14 +47,13 @@
 </template>
 
 <script>
+  //默认长度：xs:24, sm:8, md:8, lg:8, xl:4
   import { getList } from "@/api/table";
   import VabImage from "@/components/VabImage";
 
   export default {
     name: "Card",
-    components: {
-      VabImage,
-    },
+    components: {},
     data() {
       return {
         value: true,
@@ -97,3 +104,21 @@
     },
   };
 </script>
+<style lang="scss" scoped>
+  .comment {
+    color: blue;
+    font-weight: bold;
+  }
+  .like {
+    color: red;
+    font-weight: bold;
+  }
+  .forward {
+    color: purple;
+    font-weight: bold;
+  }
+  .time {
+    color: gray;
+    font-weight: bold;
+  }
+</style>

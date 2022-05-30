@@ -22,6 +22,7 @@
           </div>
         </el-card>
       </el-col>
+
       <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="8">
         <el-card shadow="hover">
           <div slot="header">关系图</div>
@@ -36,6 +37,7 @@
           </div>
         </el-card>
       </el-col>
+
       <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
         <el-card class="card" shadow="never">
           <div slot="header">
@@ -410,7 +412,9 @@
             },
           ],
         },
+
         chart3: {
+          //可以转换成为知识图谱
           series: [
             {
               type: "graph",

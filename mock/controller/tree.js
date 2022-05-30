@@ -2,18 +2,18 @@ const data = [
   {
     id: "1",
     parentId: "0",
-    name: "vue-admin-beautiful科技有限公司",
-    title: "vue-admin-beautiful科技有限公司",
-    text: "vue-admin-beautiful科技有限公司",
+    name: "vue-admin-beautiful",
+    title: "vue-admin-beautiful",
+    text: "vue-admin-beautiful",
     value: "1",
     rank: 1,
     children: [
       {
         id: "32816b88ff72423f960e7d492a386131",
         parentId: "1",
-        name: "1103工作室",
-        title: "1103工作室",
-        text: "1103工作室",
+        name: "1103",
+        title: "1103",
+        text: "1103",
         value: "32816b88ff72423f960e7d492a386131",
         rank: 2,
         children: [

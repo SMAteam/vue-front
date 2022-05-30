@@ -2,7 +2,7 @@
   <div class="login-container">
     <el-alert
       v-if="nodeEnv !== 'development'"
-      title="beautiful boys and girls欢迎加入vue-admin-beautifulQQ群：972435319"
+      title="基于多源社交媒体的灾害事件分析系统"
       type="success"
       :closable="false"
       style="position: fixed"
@@ -19,8 +19,8 @@
           class="login-form"
           label-position="left"
         >
-          <div class="title">hello !</div>
-          <div class="title-tips">欢迎来到{{ title }}！</div>
+          <div class="title">Hello !</div>
+          <div class="title-tips">{{ title }}</div>
           <el-form-item style="margin-top: 40px" prop="username">
             <span class="svg-container svg-container-admin">
               <vab-icon :icon="['fas', 'user']" />
@@ -75,7 +75,7 @@
 </template>
 
 <script>
-  import { isPassword } from "@/utils/validate";
+  import { isPassword } from "@/utils/validate"; //正则判断
 
   export default {
     name: "Login",
@@ -89,16 +89,16 @@
     data() {
       const validateusername = (rule, value, callback) => {
         if ("" == value) {
-          callback(new Error("用户名不能为空"));
+          callback(new Error("用户名不能为空")); //用户名为空
         } else {
-          callback();
+          callback(); //返回并没有动作
         }
       };
       const validatePassword = (rule, value, callback) => {
         if (!isPassword(value)) {
-          callback(new Error("密码不能少于6位"));
+          callback(new Error("密码不能少于6位")); //密码少于6位
         } else {
-          callback();
+          callback(); //返回并没有动作
         }
       };
       return {
@@ -144,11 +144,11 @@
       document.body.style.overflow = "auto";
     },
     mounted() {
-      this.form.username = "admin";
+      /* this.form.username = "admin";
       this.form.password = "123456";
       setTimeout(() => {
         this.handleLogin();
-      }, 3000);
+      }, 3000); */
     },
     methods: {
       handlePassword() {
@@ -160,7 +160,9 @@
         });
       },
       handleLogin() {
+        //登录进入系统
         this.$refs.form.validate((valid) => {
+          //正则判断通过
           if (valid) {
             this.loading = true;
             this.$store
@@ -180,9 +182,6 @@
             return false;
           }
         });
-        setTimeout(() => {
-          window.open("https://github.com/chuzhixin/vue-admin-beautiful");
-        }, 100000);
       },
     },
   };

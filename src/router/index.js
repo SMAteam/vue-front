@@ -1,5 +1,5 @@
 /**
- * @copyright chuzhixin 1204505056@qq.com
+ * @copyright liaojianxiang 1298508511@qq.com
  * @description router全局配置，如有必要可分文件抽离，其中asyncRoutes只有在intelligence模式下才会用到，vip文档中已提供路由的基础图标与小清新图标的配置方案，请仔细阅读
  */
 
@@ -8,6 +8,12 @@ import VueRouter from "vue-router";
 import Layout from "@/layouts";
 import EmptyLayout from "@/layouts/EmptyLayout";
 import { publicPath, routerMode } from "@/config/settings";
+
+// 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch((err) => err);
+};
 
 Vue.use(VueRouter);
 export const constantRoutes = [
@@ -36,18 +42,18 @@ export const constantRoutes = [
 ];
 
 export const asyncRoutes = [
+  //主页，初次进入弹出的页面
   {
     path: "/",
     component: Layout,
     redirect: "index",
-    hidden: true,
     children: [
       {
         path: "index",
         name: "Index",
-        component: () => import("@/views/index/index"),
+        component: () => import("@/views/index/newIndex"),
         meta: {
-          title: "首页",
+          title: "主页",
           icon: "home",
           affix: true,
         },
@@ -55,9 +61,10 @@ export const asyncRoutes = [
     ],
   },
   {
+    //个人中心
     path: "/personalCenter",
     component: Layout,
-    hidden: false,
+    hidden: true,
     redirect: "personalCenter",
     children: [
       {
@@ -66,32 +73,57 @@ export const asyncRoutes = [
         component: () => import("@/views/personalCenter/index"),
         meta: {
           title: "个人中心",
+          icon: "user",
         },
       },
     ],
   },
+
   {
+    //数据分布
     path: "/distribution",
     component: Layout,
     redirect: "noRedirect",
     name: "distribution",
-    meta: { title: " 分布", icon: "map-marker-alt", permissions: ["admin"] },
+    meta: { title: " 分布", permissions: ["admin"] },
     children: [
       {
-        path: "test",
-        name: "Test",
+        path: "index",
+        name: "index",
         component: () => import("@/views/distribution/index"),
         meta: {
-          title: "区域统计",
+          title: "地震分布",
           permissions: ["admin"],
+          icon: "map-marker-alt",
         },
       },
       {
         path: "map",
         component: () => import("@/views/distribution/map/index"),
         name: "Map",
+        hidden: true,
         meta: {
-          title: "地图",
+          title: "地图标注",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "mapD",
+        component: () => import("@/views/distribution/map/bmap"),
+        name: "MapD",
+        hidden: true,
+        meta: {
+          title: "页面测试",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "dizhi",
+        component: () => import("@/views/distribution/dizhi"),
+        name: "dizhi",
+        hidden: true,
+        meta: {
+          title: "地址详情",
           permissions: ["admin"],
         },
       },
@@ -102,25 +134,54 @@ export const asyncRoutes = [
     component: Layout,
     redirect: "noRedirect",
     name: "data",
-    meta: { title: " 数据", icon: "map-marker-alt", permissions: ["admin"] },
+    alwaysShow: true,
+    meta: { title: "地震数据", icon: "list", permissions: ["admin"] },
     children: [
       {
-        path: "weibo",
-        name: "weibo",
+        path: "index",
+        name: "index",
         component: () => import("@/views/data/index"),
         meta: {
-          title: "地震微博",
+          title: "地震事件",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "zuixin",
+        name: "zuixin",
+        component: () => import("@/views/data/zuixin"),
+        meta: {
+          title: "舆情信息",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "hot",
+        name: "hot",
+        component: () => import("@/views/data/hot"),
+        meta: {
+          title: "热门事件",
+          permissions: ["admin"],
+        },
+      },
+      {
+        path: "xiangqing",
+        name: "xiangqing",
+        component: () => import("@/views/data/xiangqing"),
+        meta: {
+          title: "地震事件详情",
           permissions: ["admin"],
         },
       },
     ],
   },
   {
+    //管理配置
     path: "/personnelManagement",
     component: Layout,
     redirect: "noRedirect",
     name: "PersonnelManagement",
-    meta: { title: "配置", icon: "users-cog", permissions: ["admin"] },
+    meta: { title: "管理", icon: "users-cog", permissions: ["admin"] },
     children: [
       {
         path: "userManagement",
@@ -151,7 +212,7 @@ export const asyncRoutes = [
     component: Layout,
     redirect: "noRedirect",
     name: "Vab",
-    alwaysShow: true,
+    hidden: true,
     meta: { title: "组件", icon: "box-open" },
     children: [
       {
@@ -406,17 +467,31 @@ export const asyncRoutes = [
         component: () => import("@/views/vab/errorLog/index"),
         meta: { title: "错误日志模拟", permissions: ["admin"] },
       },
-      {
-        path: "more",
-        name: "More",
-        component: () => import("@/views/vab/more/index"),
-        meta: { title: "更多组件", permissions: ["admin"] },
-      },
+
       {
         path: "blacklist",
         name: "Blacklist",
         component: () => import("@/views/vab/blacklist/index"),
         meta: { title: "测试模块", permissions: ["admin"] },
+      },
+    ],
+  },
+  {
+    //关于和使用说明文档：Documentation
+    path: "/about",
+    component: Layout,
+    hidden: false,
+    redirect: "about",
+    children: [
+      {
+        path: "about",
+        name: "about",
+        component: () => import("@/views/about/index"),
+        meta: {
+          title: " 关于",
+          icon: "bookmark",
+          permissions: ["admin"],
+        },
       },
     ],
   },

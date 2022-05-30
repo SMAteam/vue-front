@@ -1,5 +1,5 @@
 /**
- * @copyright chuzhixin 1204505056@qq.com
+ * @copyright liaojianxiang 1298508511@qq.com
  * @description 全局变量配置
  */
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
       ? "vab-mock-server"
       : "vab-mock-server",
   //标题 （包括初次加载雪花屏的标题 页面的标题 浏览器的标题）
-  title: "Disaster-Analyse",
+  title: "基于多源社交媒体的灾害事件分析系统",
   //简写ß
   abbreviation: "vab",
   //开发环境端口号
@@ -28,10 +28,6 @@ module.exports = {
   version: process.env.VUE_APP_VERSION,
   //烦请保留package.json作者信息 保留版权可免费商用 如需去除并自定义为自己企业的版权请联系群主QQ 1204505056 需支付299元 恶意修改发生纠纷及出现任何问题 由修改人自行承担
   copyright: process.env.VUE_APP_AUTHOR,
-  //是否显示页面底部版权信息，建议您显示，当然您也可以选择不显示，不管您是付费用户还是未付费用户您都有选择显示或者不显示的权利
-  footerCopyright: process.env.NODE_ENV !== "development",
-  //是否显示右上角github图标
-  githubCorner: process.env.NODE_ENV !== "development",
   //是否显示顶部进度条
   progressBar: true,
   //缓存路由的最大数量
@@ -55,9 +51,9 @@ module.exports = {
   //是否国定头部 固定fixed 不固定noFixed
   header: "fixed",
   //横纵布局 horizontal vertical
-  layout: "vertical",
+  layout: "horizontal",
   //是否开启主题配置按钮
-  themeBar: true,
+  themeBar: false,
   //是否显示多标签页
   tagsBar: true,
   //是否显示骨架屏

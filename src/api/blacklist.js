@@ -11,7 +11,7 @@ export function getList(data) {
 //自己加的测试方法，随时可以删掉
 export function getTestList(data) {
   return request({
-    url: "http://152.136.59.62:8001/ceshi/test",
+    url: "http://49.232.229.126:8000/ceshi/test",
     method: "get",
     data,
   });

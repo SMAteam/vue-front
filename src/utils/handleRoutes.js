@@ -1,5 +1,5 @@
 /**
- * @copyright chuzhixin 1204505056@qq.com
+ * @copyright liaojianxiang 1298508511@qq.com
  * @description all模式渲染后端返回路由
  * @param constantRoutes
  * @returns {*}
@@ -40,7 +40,7 @@ export function filterAllRoutes(constantRoutes) {
 }
 
 /**
- * @copyright chuzhixin 1204505056@qq.com
+ * @copyright liaojianxiang 1298508511@qq.com
  * @description 判断当前路由是否包含权限
  * @param permissions
  * @param route
@@ -55,7 +55,7 @@ function hasPermission(permissions, route) {
 }
 
 /**
- * @copyright chuzhixin 1204505056@qq.com
+ * @copyright liaojianxiang 1298508511@qq.com
  * @description intelligence模式根据permissions数组拦截路由
  * @param routes
  * @param permissions

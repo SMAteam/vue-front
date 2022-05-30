@@ -1,7 +1,9 @@
 const data = [
   {
-    title: "敬请期待新版本，时间段内更新新功能",
-    url: "https://chu1204505056.gitee.io/vue-admin-beautiful-pro/#/index",
+    title:
+      " Website system for Natural Disaster Monitoring base on multiple social media - Version 1.3",
+    url:
+      "https://github.com/SMAteam/document/blob/master/%E7%B3%BB%E7%BB%9F%E6%96%87%E6%A1%A3.md",
   },
 ];
 module.exports = [
